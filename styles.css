@@ -2,12 +2,16 @@
     padding:0;
     margin:0;
     box-sizing:border-box;
+    font-family: 'Google Sans';
 }
 :root{
     
 }
 .darkmode {
 
+}
+body{
+    overflow:hidden;
 }
 header{
     display:flex;
@@ -17,47 +21,68 @@ header{
 }
 
 svg{
-    width:1.6rem;
-    margin-left:0.4rem;   
+    width:2rem;
+    margin-left:0.1rem; 
+    padding: 0.1rem 0.2rem;
+    /* border: 1px solid #dee9ff; */
+    /* border-radius:0.3rem; */
+
+    
+}
+svg:active{
+    transform: scale(0.8);
+    background-color: rgba(37, 34, 30, 0.07);
+    
+    transition: transform 0.5s ease;
+}
+.quick-action>svg:hover{
+    background-color: rgba(37, 34, 30, 0.07);
+    border-radius:0.3rem;
+    
+
 }
 
 nav{
     position:fixed;
-    top:59px;
+    top:90px;
     left:-900px;
     /* display:none; */
-    height:90vh;
+    height:100vh;
     background-color:#dee9ff;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
     width:250px;
     transition:0.5s;
+    z-index: 1;
 
 }
 .logo{
     font-size:2rem;
+    font-family:'Playwrite IN Guides'
 }
 #night-icon{
     display:none;
 }
 .no-tasks{
-    max-width: 650px;
-    width:60vw;
-    margin: 1rem auto;
+   
+    width:100vw;
+    height:100vh;
     /* border: 1px solid black; */
     /* position:relative; */
     display:none;
+    text-align: center;
 }
 
 .no-tasks>img{
     display: inline-block;
-    margin-top:-50px;
     width:100%;
+    max-width: 650px;
+    margin-top:-5rem;   
     
 }
 .no-tasks>p{
     text-align: center;
-    margin-top:-5rem;
+    margin-top:-5.9rem;
 }
 .add-task{
     text-align:center;
@@ -68,7 +93,8 @@ nav{
 }
 .add-task>input{
     height:59px;
-    width:800px;
+    max-width:800px;
+    width:100%;
     border-radius: 18px;
     font-size:1rem;
     padding:1rem;
@@ -96,12 +122,21 @@ nav{
 a{
     text-decoration:none;
     color:#418df9;
-    padding:0.2rem 0.6rem;
+    padding:0.4rem 0.6rem;
     /* border:2px solid black; */
     font-size: 18px;
-    display:block;
-    margin-top:1rem;
+    display:flex;
+    margin-top:0.7rem;
+    align-items:flex-end;
     
+}
+a>svg{
+    width:1.5rem;
+    fill:#418df9
+}
+a:hover{
+    background-color: #d8e3fa;
+    border-radius:0.3rem;
 }
 ul{
     list-style-type: none;
@@ -137,9 +172,18 @@ ul>li{
     position:absolute;
     top:15px;
     right:20px;
-    width:1.2rem;
     fill:#dee9ff
 }
 #completed-tasks>div:hover svg{
     fill:red;
+}
+#completed-tasks>div:hover{
+    border:1px solid #418df9
+}
+li{
+    display: inline-block;
+}
+
+.no-tasks p{
+    color:grey;
 }
