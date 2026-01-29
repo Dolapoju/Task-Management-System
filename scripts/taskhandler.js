@@ -100,4 +100,4 @@ function randomID() {
     return [false, num];
   }
 }
-spinup();
+
