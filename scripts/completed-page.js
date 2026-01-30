@@ -7,7 +7,7 @@ window.onload = () => {
 };
 
 completedTasks.addEventListener("change", (event) => {
-  const hiddenkey = event.target.dataset.userId;
+  const hiddenkey = event.target.dataset.userId; 
   uncompleteTaskhandler(hiddenkey);
 });
 

@@ -35,7 +35,7 @@ function removeAllBorders(){
 }
 
 function dropOptions(){
-    const clear= document.querySelector("#clear-btn");
+    const clear= document.querySelector("#clear-btn"); 
     if (clear.style.display === 'none') {
         clear.style.display = 'inline-block'; 
     } else {

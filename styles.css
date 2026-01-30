@@ -223,7 +223,7 @@ li{
 }
 
 .no-tasks p{
-    color:var(--light-text);
+    color:var(--light-text); 
 }
 header{
     position: sticky;

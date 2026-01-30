@@ -7,7 +7,7 @@ const submitted = document.querySelector("#up-arrow");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   addTask();
-  spinup();
+  spinup(); 
 });
 window.onload = () => {
   spinup();
