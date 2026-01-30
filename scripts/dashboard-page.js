@@ -1,11 +1,9 @@
-// localStorage.clear()
-//DOM
 const form = document.querySelector(".add-task");
 const noTaskScreen = document.querySelector(".no-tasks");
 const completedTasks = document.querySelector("#completed-tasks");
 const submitted = document.querySelector("#up-arrow");
 
-//Event Listeners
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   addTask();
@@ -23,9 +21,10 @@ completedTasks.addEventListener("change", (event) => {
 });
 
 
-//functions
+
 function addTask() {
-  const task = {
+  if(form.input.value!=""){
+      const task = {
     content: `${form.input.value}`,
     isComplete: false,
     category: "none",
@@ -38,6 +37,8 @@ function addTask() {
   }
 
   localStorage.setItem(id, JSON.stringify(task));
+  }
+
 }
 
 function spinup() {
@@ -64,15 +65,24 @@ function spinup() {
     if (completedTasks.innerHTML == "") {
       noTaskScreen.style.display = "block";
       completedTasks.style.display = "none";
+      document.body.style.overflowY="hidden";
+    }else{
+      document.body.style.overflowY="unset";
+
     }
+  }
+  if(Array.from(document.body.classList).includes("darkmode")){
+    removeAllBorders();
   }
 }
 
 function completedTaskhandler(hiddenkey) {
-  let task = JSON.parse(localStorage.getItem(hiddenkey));
-  task.isComplete = true;
-  localStorage.setItem(hiddenkey, JSON.stringify(task));
-  spinup();
+  setTimeout(()=>{
+    let task = JSON.parse(localStorage.getItem(hiddenkey));
+    task.isComplete = true;
+    localStorage.setItem(hiddenkey, JSON.stringify(task));
+    spinup();
+  },200 )
 }
 
 function randomID() {
@@ -84,7 +94,10 @@ function randomID() {
   }
 }
 
-// function deletetask(key){
-//       localStorage.removeItem(key);
-//       spinup();
-// }
+function deletetask(key){
+  setTimeout(()=>{
+      localStorage.removeItem(key);
+      spinup();
+  },200)
+      
+}

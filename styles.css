@@ -4,18 +4,41 @@
     box-sizing:border-box;
     font-family: 'Google Sans';
 }
-/* :root{
+:root{
     --background: white;
-    --secondary: black;
+    --header-logo: black;
     --accent-one: #418df9;
+    --nav-text: #418df9;
+    --input-color:white;
     --accent-two:#dee9ff;
     --hover-bg:#d8e3fa;
-} */
+    --light-text:grey;
+    --light-border:rgb(226, 226, 226);
+    --dark-hover-bg:rgba(37, 34, 30, 0.07);
+    --input-shadow:rgba(0,0,0,0.3);
+}
 .darkmode {
+    --background: #212121;
+    --header-logo: white;
+    --accent-one: #418df9;
+    --accent-two:#181818;
+    --hover-bg:#464646;
+    --nav-text: white;
+    --input-color:#303030;
+    --light-border:rgb(114, 114, 114);
+    --input-shadow:rgba(0,0,0,0.3);
+    --light-text:white;
+
+
+
+    
 
 }
 body{
-    overflow:hidden;
+    /* overflow:hidden; */
+    overflow-x: hidden;
+    width:100%;
+    background-color: var(--background);
 }
 header{
     display:flex;
@@ -28,19 +51,23 @@ svg{
     width:2rem;
     margin-left:0.1rem; 
     padding: 0.1rem 0.2rem;
-    /* border: 1px solid #dee9ff; */
+    /* border: 1px solid var(--accent-two); */
     /* border-radius:0.3rem; */
 
     
 }
 svg:active{
     transform: scale(0.8);
-    background-color: rgba(37, 34, 30, 0.07);
+    background-color: var(--dark-hover-bg);
     
     transition: transform 0.5s ease;
 }
+.quick-action>svg{
+    fill:var(--header-logo);
+    color: var(--header-logo);
+}
 .quick-action>svg:hover{
-    background-color: rgba(37, 34, 30, 0.07);
+    background-color: var(--dark-hover-bg);
     border-radius:0.3rem;
     
 
@@ -52,7 +79,7 @@ nav{
     left:-900px;
     /* display:none; */
     height:100vh;
-    background-color:#dee9ff;
+    background-color:var(--accent-two);
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
     width:250px;
@@ -62,7 +89,10 @@ nav{
 }
 .logo{
     font-size:2rem;
-    font-family:'Playwrite IN Guides'
+    font-family:'Playwrite IN Guides';
+    color:var(--header-logo);
+    /* position: sticky; */
+    top:0;
 }
 #night-icon{
     display:none;
@@ -71,7 +101,7 @@ nav{
    
     width:100vw;
     height:100vh;
-    /* border: 1px solid black; */
+    /* border: 1px solid var(--header-logo); */
     /* position:relative; */
     display:none;
     text-align: center;
@@ -102,12 +132,14 @@ nav{
     border-radius: 18px;
     font-size:1rem;
     padding:1rem;
-    border:1px solid rgb(226, 226, 226);
-    box-shadow: 0  0 1px rgba(0,0,0,0.3) ;
+    border:1px solid var(--light-border);
+    box-shadow: 0  0 1px var(--input-shadow) ;
+    background-color: var(--input-color);
+    color:var(--header-logo);
 
 }
 .add-task>input:focus{
-    outline:1px solid#418df9;
+    outline:1px solid var(--accent-one);
 }
 .add-task>input::placeholder{
     color:grey;
@@ -116,7 +148,7 @@ nav{
 #up-arrow{
     margin-left:-58px;
     margin-bottom:-12px;
-    background-color: #418df9;
+    background-color: var(--accent-one);
     fill:white;
     border-radius:20px;
     padding:0.4rem;
@@ -125,9 +157,9 @@ nav{
 
 a{
     text-decoration:none;
-    color:#418df9;
+    color:var(--nav-text);
     padding:0.4rem 0.6rem;
-    /* border:2px solid black; */
+    /* border:2px solid var(--header-logo); */
     font-size: 18px;
     display:flex;
     margin-top:0.7rem;
@@ -136,10 +168,10 @@ a{
 }
 a>svg{
     width:1.5rem;
-    fill:#418df9
+    fill:var(--nav-text);
 }
 a:hover{
-    background-color: #d8e3fa;
+    background-color: var(--hover-bg);
     border-radius:0.3rem;
 }
 ul{
@@ -150,13 +182,16 @@ ul>li{
 }
 #completed-tasks{
     padding:2rem 4rem;
+    margin-bottom:6rem;
+    /* border-bottom:2px dotted var(--nav-text);     */
+
     
 }
 #completed-tasks>div{
     max-width:800px;
-    border:1px solid rgb(226, 226, 226);
+    border:1px solid var(--light-border);
     border-radius: 18px;
-    
+    color:var(--header-logo);
     margin:auto;
     padding:1rem 2rem;
     display:flex;
@@ -164,30 +199,46 @@ ul>li{
     gap:1rem;
     margin-bottom:1rem;
     position:relative;
+    background-color: var(--input-color);
+    
 
 }
 
 #completed-tasks>div>input{
     width:20px;
     height:20px;
-    color:#418df9;
+    background-color:red;
+    
 }
 #completed-tasks>div>svg{
     position:absolute;
     top:15px;
     right:20px;
-    fill:#dee9ff
+    fill:var(--accent-two)
 }
 #completed-tasks>div:hover svg{
     fill:red;
-}
-#completed-tasks>div:hover{
-    border:1px solid #418df9
 }
 li{
     display: inline-block;
 }
 
 .no-tasks p{
-    color:grey;
+    color:var(--light-text);
+}
+header{
+    position: sticky;
+    top:0;
+}
+#clear-btn{
+    padding-left:2.1rem;
+    display:none;
+    transition: 0.2s;
+    cursor:pointer;
+
+    
+
+}
+#clear-btn:hover{
+    color:red;
 }
