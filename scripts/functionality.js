@@ -3,7 +3,7 @@ const options=document.querySelector('a[href="#"]');
 options.addEventListener('click',(event)=>{
     event.preventDefault();
     dropOptions();
-    console.log("this")
+
 })
 
 let isShowing=false;
