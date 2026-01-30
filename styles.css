@@ -4,9 +4,13 @@
     box-sizing:border-box;
     font-family: 'Google Sans';
 }
-:root{
-    
-}
+/* :root{
+    --background: white;
+    --secondary: black;
+    --accent-one: #418df9;
+    --accent-two:#dee9ff;
+    --hover-bg:#d8e3fa;
+} */
 .darkmode {
 
 }
